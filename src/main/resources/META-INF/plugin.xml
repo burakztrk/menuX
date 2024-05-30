@@ -1,0 +1,48 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.menu.x.menuX</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>MenuX</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="menux@menu.com" url="https://www.menux.com">MenuX</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    MenuX for Maestro<br>
+    - Maestro test runnerH
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Custom Notification Group"
+                           displayType="BALLOON"/>
+    </extensions>
+    <actions>
+        <group
+                id="DemoGroup"
+                description="Demo group desc">
+            <action
+                    icon="AllIcons.Idea_logo_welcome"
+                    id="com.menu.x.menux.MyAction"
+                    class="com.menu.x.menux.MyAction"
+                    text="X Action"
+                    description="Action X Desc"
+            />
+            <add-to-group anchor="after" group-id="ProjectViewPopupMenuRunGroup" relative-to-action="NewDir"/>
+        </group>
+    </actions>
+</idea-plugin>
