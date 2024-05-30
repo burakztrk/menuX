@@ -1,4 +1,4 @@
-package com.menu.x.menux
+package com.menu.x.menux.util
 
 class CommandBuilder {
     private var command: String = ""
@@ -33,6 +33,7 @@ class CommandBuilder {
     fun build(): String = buildString {
         append(command)
         if (subCommand.isNotEmpty()) {
+            append(SPACE)
             append(subCommand)
         }
         if (options.isNotEmpty()) {
