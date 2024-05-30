@@ -28,21 +28,41 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <notificationGroup id="Custom Notification Group"
-                           displayType="BALLOON"/>
+
+        <notificationGroup id="Custom Notification Group" displayType="BALLOON"/>
+        <applicationConfigurable instance="com.menu.x.menux.config.PanelConfigurable" displayName="MenuX Config"/>
+        <applicationService serviceImplementation="com.menu.x.menux.config.PanelConfigState"/>
+
     </extensions>
+
     <actions>
-        <group
-                id="DemoGroup"
-                description="Demo group desc">
+        <group id="DemoGroup" description="Demo group desc">
             <action
-                    icon="AllIcons.Idea_logo_welcome"
-                    id="com.menu.x.menux.MyAction"
-                    class="com.menu.x.menux.MyAction"
-                    text="X Action"
-                    description="Action X Desc"
+                    icon="com.intellij.icons.ExpUiIcons.Run.TestCustom"
+                    id="com.menu.x.menux.action.DebugAction"
+                    class="com.menu.x.menux.action.DebugAction"
+                    text="Maestro Test Debug Run"
+                    description="Maestro test debug run">
+            </action>
+
+
+            <action
+                    icon="com.intellij.icons.ExpUiIcons.Run.TestCustom"
+                    id="com.menu.x.menux.action.ReleaseAction"
+                    class="com.menu.x.menux.action.DebugAction"
+                    text="Maestro Test Release Run"
+                    description="Maestro test release run"
             />
             <add-to-group anchor="after" group-id="ProjectViewPopupMenuRunGroup" relative-to-action="NewDir"/>
         </group>
+
+
+        <action
+                icon="AllIcons.Idea_logo_welcome"
+                text="Maestro Test Release Run"
+                description="Maestro test release run"
+                id="com.menu.x.menux.action.ReleaseAction"
+                class="com.menu.x.menux.action.ReleaseAction"
+        />
     </actions>
 </idea-plugin>
